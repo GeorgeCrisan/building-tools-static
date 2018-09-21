@@ -44,7 +44,7 @@ gulp.task('browserSync', function(){
        }});
 })
 
-gulp.task('watch',['browserSync','compileSassAutoP','compileJsBabel','views'],()=>{
+gulp.task('start',['browserSync','views','compileJsBabel','compileSassAutoP'],()=>{
          gulp.watch('src/sass/*.sass',['compileSassAutoP']);
          gulp.watch('src/js/*.js',['compileJsBabel']);
          gulp.watch('src/index.pug',['views']);

@@ -1,28 +1,39 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+window.onerror = function (msg, url, lineNo, columnNo, error) {
+    var string = msg.toLowerCase();
+    var substring = "script error";
+    if (string.indexOf(substring) > -1) {
+        alert('Script Error: See Browser Console for Detail');
+    } else {
+        var message = ['Message: ' + msg, 'URL: ' + url, 'Line: ' + lineNo, 'Column: ' + columnNo, 'Error object: ' + JSON.stringify(error)].join(' - ');
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var arr = [4, 5, 6, 7, 8, 9];
-var newArr = [].concat(arr);
-
-console.log(newArr);
-
-var Data = function () {
-  function Data() {
-    _classCallCheck(this, Data);
-  }
-
-  _createClass(Data, [{
-    key: 'run',
-    value: function run() {
-      console.log('run');
+        console.error(message);
     }
-  }]);
 
-  return Data;
-}();
+    return false;
+};
 
-var Datachild = new Data();
-Datachild.run();
+console.log('run');
+
+var adds = document.querySelectorAll('.well');
+console.log(adds);
+
+adds.forEach(function (el) {
+    var div = document.createElement('DIV');
+    var textNode = document.createTextNode('some node');
+    div.appendChild(textNode);
+    el.appendChild(div);
+});
+
+window.addEventListener('scroll', function () {
+    window.innerHeight += 50;
+    if (window.innerHeight > 50) {
+        console.log('scroll event');
+    }
+});
+
+console.log(window.history);
+console.log(window.navigator.geolocation.getCurrentPosition(function (data) {
+    console.log(data);
+}));
