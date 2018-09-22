@@ -10,6 +10,7 @@ const uglifyjs = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const cache = require('gulp-cache');
 const runSequence = require('run-sequence');
+const plumber = require('gulp-plumber');
 
 //options for autoprefixer
 
@@ -21,12 +22,19 @@ const autoprefixerOptions = {
 
 gulp.task('compileSassAutoP',()=>{
     return gulp.src('src/sass/*.sass')
-    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(plumber())
+    .pipe(sass({outputStyle: 'compressed',errLogToConsole: true}))
+    .on('error', catchErr)
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(gulp.dest('src/css'))
     .pipe(browserSync.reload({
       stream: true}));
 });
+
+function catchErr(e) {
+    console.log(e);
+    this.emit('end');
+  }
 
 // 2. task pug
 
