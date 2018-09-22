@@ -20,9 +20,26 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
 };
 
 
-console.log('run');
+let test = {unu: 1, doi: false};
+ 
+let {unu: runtest} = test;
+
+console.log('run',runtest);
 
 
+class Myclass{
+    constructor(it,bread){
+        this.it = it;
+        this.bread = bread;
+    }
 
+    what(){
+        console.log(`I ${this.it} eat ${this.bread}`);
+    }    
+}
+
+
+let me = new Myclass('manc','paine');
+console.log(me);
 
 

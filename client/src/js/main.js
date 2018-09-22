@@ -1,17 +1,1 @@
-"use strict";
-
-window.onerror = function (msg, url, lineNo, columnNo, error) {
-    var string = msg.toLowerCase();
-    var substring = "script error";
-    if (string.indexOf(substring) > -1) {
-        alert('Script Error: See Browser Console for Detail');
-    } else {
-        var message = ['Message: ' + msg, 'URL: ' + url, 'Line: ' + lineNo, 'Column: ' + columnNo, 'Error object: ' + JSON.stringify(error)].join(' - ');
-
-        console.error(message);
-    }
-
-    return false;
-};
-
-console.log('run');
+"use strict";var _createClass=function(){function t(e,r){for(var n=0;n<r.length;n++){var t=r[n];t.enumerable=t.enumerable||!1,t.configurable=!0,"value"in t&&(t.writable=!0),Object.defineProperty(e,t.key,t)}}return function(e,r,n){return r&&t(e.prototype,r),n&&t(e,n),e}}();function _classCallCheck(e,r){if(!(e instanceof r))throw new TypeError("Cannot call a class as a function")}var test={unu:1,doi:!(window.onerror=function(e,r,n,t,o){if(-1<e.toLowerCase().indexOf("script error"))alert("Script Error: See Browser Console for Detail");else{var a=["Message: "+e,"URL: "+r,"Line: "+n,"Column: "+t,"Error object: "+JSON.stringify(o)].join(" - ");console.error(a)}return!1})},runtest=test.unu;console.log("run",runtest);var Myclass=function(){function n(e,r){_classCallCheck(this,n),this.it=e,this.bread=r}return _createClass(n,[{key:"what",value:function(){console.log("I "+this.it+" eat "+this.bread)}}]),n}(),me=new Myclass("manc","paine");console.log(me);
